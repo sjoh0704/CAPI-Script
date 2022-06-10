@@ -1,14 +1,17 @@
 ### CAPI 자동화 스크립트
 ```
 ├── clusters
-│   └── capi-test.yaml
+│   └── capi-test.yaml
 ├── execute
-│   ├── create_aws_k8s.sh
-│   ├── create_aws_k8s.sh.example
-│   ├── delete_all.sh
-│   └── extract_kubeconfig.sh
+│   ├── create_aws_k8s.sh
+│   ├── create_aws_k8s.sh.example
+│   ├── delete_all.sh
+│   ├── extract_kubeconfig.sh
+│   └── install_calico.sh
 ├── kubeconfig.yaml
 ├── README.md
+├── test
+│   └── mario.yaml
 ├── value.sh
 └── value.sh.example
 ```
