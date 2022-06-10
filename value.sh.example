@@ -1,0 +1,31 @@
+#!/bin/bash
+CLUSTER_NAME=capi-test
+AWS_REGION=ap-northeast-2
+AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID>
+AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY>
+
+AWS_SSH_KEY_NAME=aws-keypair
+AWS_CONTROL_PLANE_MACHINE_TYPE=t3.medium
+AWS_NODE_MACHINE_TYPE=t3.medium
+
+# create_aws_k8s.sh
+sed "s/CLUSTER_NAME=.*$/CLUSTER_NAME=$CLUSTER_NAME/g" ./execute/create_aws_k8s.sh.example > ./execute/create_aws_k8s.sh
+chmod +x ./execute/create_aws_k8s.sh
+sed -i "s/AWS_REGION=.*$/AWS_REGION=$AWS_REGION/g" ./execute/create_aws_k8s.sh
+sed -i "s/AWS_ACCESS_KEY_ID=.*$/AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID/g" ./execute/create_aws_k8s.sh
+sed -i "s/AWS_SECRET_ACCESS_KEY=.*$/AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY/g" ./execute/create_aws_k8s.sh
+sed -i "s/AWS_SSH_KEY_NAME=.*$/AWS_SSH_KEY_NAME=$AWS_SSH_KEY_NAME/g" ./execute/create_aws_k8s.sh
+sed -i "s/AWS_CONTROL_PLANE_MACHINE_TYPE=.*$/AWS_CONTROL_PLANE_MACHINE_TYPE=$AWS_CONTROL_PLANE_MACHINE_TYPE/g" ./execute/create_aws_k8s.sh
+sed -i "s/AWS_NODE_MACHINE_TYPE=.*$/AWS_NODE_MACHINE_TYPE=$AWS_NODE_MACHINE_TYPE/g" ./execute/create_aws_k8s.sh
+
+# delete_all.sh
+sed -i "s/CLUSTER_NAME=.*$/CLUSTER_NAME=$CLUSTER_NAME/g" ./execute/delete_all.sh
+sed -i "s/AWS_REGION=.*$/AWS_REGION=$AWS_REGION/g" ./execute/extract_kubeconfig.sh
+
+# extract_kubeconfig.sh
+sed -i "s/CLUSTER_NAME=.*$/CLUSTER_NAME=$CLUSTER_NAME/g" ./execute/extract_kubeconfig.sh
+
+# install_calico.sh
+sed -i "s/CLUSTER_NAME=.*$/CLUSTER_NAME=$CLUSTER_NAME/g" ./execute/install_calico.sh
+
+

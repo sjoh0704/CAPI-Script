@@ -1,0 +1,3 @@
+create_aws_k8s.sh
+kubeconfig.yaml
+value.sh
