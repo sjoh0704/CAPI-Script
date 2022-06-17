@@ -1,4 +1,4 @@
 #!/bin/bash
-CLUSTER_NAME=capi-test
+CLUSTER_NAME=sseung-capi-test
 NAMESPACE=default
-kubectl get secret capi-test-kubeconfig -o jsonpath={.data.value} | base64 -d > ../kubeconfig.yaml 
+kubectl -n $NAMESPACE get secret $CLUSTER_NAME-kubeconfig -o jsonpath={.data.value} | base64 -d > ../kubeconfig.yaml 

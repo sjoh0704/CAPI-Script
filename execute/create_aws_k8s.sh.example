@@ -8,6 +8,9 @@ export AWS_B64ENCODED_CREDENTIALS=$(clusterawsadm bootstrap credentials encode-a
 
 # Cluster specification
 CLUSTER_NAME=<CLUSTER_NAME>
+MANAGER_CLUSTER_VERSION=<MANAGER_CLUSTER_VERSION>
+MASTER_NUM=<MASTER_NUM>
+WORKER_NUM=<WORKER_NUM>
 export AWS_SSH_KEY_NAME=<AWS_SSH_KEY_NAME>
 export AWS_CONTROL_PLANE_MACHINE_TYPE=<AWS_CONTROL_PLANE_MACHINE_TYPE> # t3.micro
 export AWS_NODE_MACHINE_TYPE=<AWS_NODE_MACHINE_TYPE> # t3.micro
@@ -20,9 +23,9 @@ clusterctl init --infrastructure aws
 
 # create cluster yaml 
 clusterctl generate cluster $CLUSTER_NAME \
-  --kubernetes-version v1.19.8 \
-  --control-plane-machine-count=1 \
-  --worker-machine-count=2 \
+  --kubernetes-version v$MANAGER_CLUSTER_VERSION \
+  --control-plane-machine-count=$MASTER_NUM \
+  --worker-machine-count=$WORKER_NUM \
   > ../clusters/$CLUSTER_NAME.yaml
 
 
